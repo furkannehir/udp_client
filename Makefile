@@ -8,4 +8,5 @@ server:
 
 
 clean:
-	rm -f clientMain server
+	rm -f clientMain 
+	rm -f server

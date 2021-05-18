@@ -6,13 +6,14 @@
 #include "client.h"
 #include "message.h"
 
+#define SERVER "127.0.0.1"
 #define PORT 8080
 
 int main()
 {
     srand ( time ( NULL));
     struct sockaddr_in servaddr;
-    int sockfd = connectToServer(PORT, &servaddr);
+    int sockfd = connectToServer(SERVER, PORT, &servaddr);
     printf("Connection established.\n");
     MessageData msg;
 

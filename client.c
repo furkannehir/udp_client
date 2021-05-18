@@ -10,7 +10,7 @@
 #include "client.h"
 
 
-int connectToServer(int port, struct sockaddr_in * servaddr)
+int connectToServer(char * ip, int port, struct sockaddr_in * servaddr)
 {
     int sockfd;
     if ( (sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 ) {
@@ -20,7 +20,7 @@ int connectToServer(int port, struct sockaddr_in * servaddr)
     memset(servaddr, 0, sizeof(*servaddr));
     servaddr->sin_family = AF_INET;
     servaddr->sin_port = htons(port);
-    if (inet_aton(SERVER , &(servaddr->sin_addr)) == 0) 
+    if (inet_aton(ip , &(servaddr->sin_addr)) == 0)
 	{
 		fprintf(stderr, "inet_aton() failed\n");
 		exit(1);
